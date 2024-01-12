@@ -8,8 +8,6 @@ import net.minecraft.client.realms.gui.screen.RealmsLongRunningMcoTaskScreen;
 import net.minecraft.client.realms.gui.screen.RealmsMainScreen;
 import net.minecraft.client.realms.task.RealmsGetServerDetailsTask;
 
-import java.util.concurrent.locks.ReentrantLock;
-
 public class RealmsReconnectStrategy extends ReconnectStrategy {
     private final RealmsServer realmsServer;
 
@@ -28,7 +26,7 @@ public class RealmsReconnectStrategy extends ReconnectStrategy {
     @Override
     public void reconnect() {
         TitleScreen titleScreen = new TitleScreen();
-        RealmsGetServerDetailsTask realmsGetServerDetailsTask = new RealmsGetServerDetailsTask(new RealmsMainScreen(titleScreen), titleScreen, realmsServer, new ReentrantLock());
+        RealmsGetServerDetailsTask realmsGetServerDetailsTask = new RealmsGetServerDetailsTask(new RealmsMainScreen(titleScreen), realmsServer);
         MinecraftClient.getInstance().setScreen(new RealmsLongRunningMcoTaskScreen(titleScreen, realmsGetServerDetailsTask));
     }
 }
