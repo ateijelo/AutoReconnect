@@ -6,7 +6,7 @@ import net.minecraft.client.realms.RealmsClient;
 import net.minecraft.client.realms.dto.RealmsServer;
 import net.minecraft.client.realms.gui.screen.RealmsLongRunningMcoTaskScreen;
 import net.minecraft.client.realms.gui.screen.RealmsMainScreen;
-import net.minecraft.client.realms.task.RealmsGetServerDetailsTask;
+import net.minecraft.client.realms.task.RealmsPrepareConnectionTask;
 
 public class RealmsReconnectStrategy extends ReconnectStrategy {
     private final RealmsServer realmsServer;
@@ -26,7 +26,7 @@ public class RealmsReconnectStrategy extends ReconnectStrategy {
     @Override
     public void reconnect() {
         TitleScreen titleScreen = new TitleScreen();
-        RealmsGetServerDetailsTask realmsGetServerDetailsTask = new RealmsGetServerDetailsTask(new RealmsMainScreen(titleScreen), realmsServer);
-        MinecraftClient.getInstance().setScreen(new RealmsLongRunningMcoTaskScreen(titleScreen, realmsGetServerDetailsTask));
+        RealmsPrepareConnectionTask realmsPrepareConnectionTask = new RealmsPrepareConnectionTask(new RealmsMainScreen(titleScreen), realmsServer);
+        MinecraftClient.getInstance().setScreen(new RealmsLongRunningMcoTaskScreen(titleScreen, realmsPrepareConnectionTask));
     }
 }
