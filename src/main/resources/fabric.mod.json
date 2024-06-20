@@ -30,13 +30,13 @@
     "autoreconnect.mixins.json"
   ],
   "depends": {
-    "java": ">=17",
+    "java": ">=21",
     "fabric-api": "*",
-    "fabricloader": ">=0.12.13",
-    "minecraft": "~1.20.3",
-    "cloth-config": ">=${clothconfig_version}"
+    "fabricloader": ">=0.15.0",
+    "minecraft": "~1.20.5"
   },
-  "suggests": {
+  "recommends": {
+    "cloth-config": ">=${clothconfig_version}",
     "modmenu": ">=${modmenu_version}"
   }
 }
